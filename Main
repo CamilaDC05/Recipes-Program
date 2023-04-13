@@ -1,0 +1,171 @@
+import math
+	
+#Instructions
+cookiesInstructions = "cookies" 
+saladInstructions = "salad"
+soupInstructions = "soup"
+lambInstructions = "lamb"
+filetInstructions = "filet"
+
+#Ingredients
+#Cookie Ingredients
+cookieFlour = 0.2
+cookieWhiteSugar = 0.06
+cookieBrownSugar = 0.06
+cookieEggs = 1
+cookieButter = 0.125
+cookieChocolateChips = 0.125
+cookieVanilla = 1
+
+#Salad Ingredients
+saladKale = 0.25
+saladCarrots = 0.5
+saladPeppers = 0.25
+saladCabbage = 0.5
+saladTomatoes = 0.25
+saladMozzarella = 0.25
+saladBasil = 0.05
+saladOil = 0.05
+saladVinegar = 0.05
+
+#Tomato Soup Ingredients
+soupTomatoes = 0.6
+soupOnion = 0.1
+soupGarlic = 1
+soupButter = 0.5
+soupFlour = 0.5
+soupSugar = 0.5
+
+#Lamb Rack Ingredients
+rackoflamb = 1                  # rack
+lambOliveoil = 2                   # tbsp
+lambSalt = 0.5                      # tsp
+rosemary = 2                    # cups
+thyme = 1                       # tsp
+garlic = 1                      # tsp
+time = 20                       # mins
+
+#Filet Mignon Ingredients
+filetmignon = 1         # 8-10 oz each
+filetOliveoil = 1                    # tbsp
+filetSalt = 0.5                      # tsp
+yourfavoriteseasoning  = 2    # tsp
+time = 20                       # mins
+
+
+
+#Program
+print("Welcome to our Recipe Cookbook. Please choose an option to get started")
+
+choice = 0
+
+while choice != 2:
+	
+	#Menu
+	print("\n1. Let's Cook a Recipe")
+	print("2. Exit\n")
+
+	#User Input
+	choice = int(input())
+	
+	#Cook A Recipe
+	if choice == 1:
+		
+		print("\nChoose a recipe to view: ", end = "")
+
+		recipe = int(input("1. Chocolate Chip Cookies, 2. Rainbow Salad, 3. Tomato Soup, 4. Lamb Rack, 5. Filet Mignon"))
+		
+		people = int(input("What is your party size?"))
+		
+		#Chocolate Chip Cookie Recipe
+		if recipe == 1:
+			print("Chocolate Chip Cookies Recipe")
+			print("Serves 3 cookeis per person")
+			
+			print("\nIngredients:")
+			print( cookieFlour * people, "Cups of flour")
+			print( cookieWhiteSugar * people, "Cups of white sugar")
+			print( cookieBrownSugar * people, "Cups of brown sugar")
+			print( math.ceil(cookieEggs * people * 0.125), "Eggs")
+			print( cookieButter * people, "Sticks of butter")
+			print( cookieChocolateChips * people, "Cups of chocolate chips")
+			print("A pinch of salt.")
+			
+			print("\nInstructons:")
+			print(cookiesInstructions)
+		
+			
+		#Rainbow Salad Recipe
+		elif recipe == 2:
+			print("Rainbow Salad Recipe\n")
+			print("Ingredients: ")
+			print( saladKale * people, "Cups of kale")
+			print( saladCabbage * people, "Cups of red cabbage")
+			print( saladCarrots * people, "Cups of diced carrots")
+			print( saladBasil * people, "Cups of basil")
+			print( saladPeppers * people, "Cups of diced bell peppers")
+			print( saladTomatoes * people, "Cups of grape tomatoes")
+			print( saladMozzarella * people, "Cups of mozzarella pearls")
+			print( saladOil * people, "Cups of extra-virgin olive oil")
+			print( saladVinegar * people, "Cups of white balsamic vinegar")
+			print("Salt to taste.")
+			
+			print("\nInstructons:")
+			print(saladInstructions)
+			
+
+		#Tomato Soup Recipe
+		elif recipe == 3:
+			print("Tomato Soup Recipe\n")
+			print("Ingredients: ")
+			print( soupTomatoes * people, "Cups of chopped tomatoes")
+			print( soupOnion * people, "Cups of sliced white onion")
+			print( math.ceil(soupGarlic * people * 0.5), "Cloves of garlic")
+			print( soupButter * people, "Tablespoons of butter")
+			print( soupFlour * people, "tablespoons of all-purpose flour")
+			print( soupSugar * people, "tablespoons of white sugar")
+			
+			print("\nInstructons:")
+			print(soupInstructions)
+			
+	
+		#Lamb Rack Recipe
+		elif recipe == 4:
+			print("Lamb Rack Recipe")
+			print("Serves two chops per person\n")
+			print("Ingredients: ")
+			print( math.ceil(people/4), "rack(s) of Lamb (1 rack is 8 chops)" )
+			print( math.ceil(people/4) * lambOliveoil, "tbsp of olive oil" )
+			print( math.ceil(people/4) * lambSalt, "tsps of salt" )
+			print( math.ceil(people/4) * rosemary, "tsps of rosemary")
+			print( math.ceil(people/4) * thyme, "tsps of thyme" )
+			print( math.ceil(people/4) * garlic, "tsps of garlic" )
+			print( time, "mins at 380F, time will vary depending on how you want the meat, rare, medium, well done" )
+			
+			print("\nInstructons:")
+			print(lambInstructions)
+			
+			
+		#Filet Mignon Recipe
+		elif recipe ==5:
+			print("Filet Mignon Recipe\n")
+			print("Ingredients: ")
+			print( filetmignon * people, "filet mignon steak(s)" )
+			print( filetOliveoil * people, "tbsp of olive oil" )
+			print( filetSalt * people, "tsps of salt" )
+			print( time, "\t mins at 380F, time will vary depending on how you want the meat, rare, medium, well done" )
+			
+			print("\nInstructions:")
+			print(filetInstructions)
+		
+		else:
+			print("That is not a valid choice, please try again.")
+		
+	elif choice == 2:
+		print("Goodbye!")
+		break
+		
+	else:
+		print("That is not a valid choice. Please try again")
+		
+						
