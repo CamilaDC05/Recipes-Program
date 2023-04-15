@@ -1,13 +1,17 @@
 import math
 	
 #Instructions
-cookiesInstructions = "cookies" 
-saladInstructions = "salad"
-soupInstructions = "soup"
-lambInstructions = "lamb"
-filetInstructions = "filet"
+cookiesInstructions = "1) Combine the dry ingredients (flour and salt) in a medium sized bowl \n2) Make sure the butter is softened, but not melted. Add the butter, sugar, eggs, and vanilla to a bowl and beat the mixture to combine \n3) Add dry ingredients and stir until just combined. Then add the chocolate chips and distribute evenly in the dough \n4) Portion the dough evenly so the cookies bake evenly and roll them into balls. The dough should be easy to roll (not sticky, not dry and crumbly). Place them evenly apart on a baking sheet (about 1.5 to 2 inches apart). \n5) Place in the oven and bake at 375 degrees for 8-10 minutes. \n6) Let cool and enjoy!"
+
+saladInstructions = "1) Measure and prepare the vegetables. Chop the kale, carrots, peppers, and red cabbage. Add them to a large salad bowl. \n2) Measure and add red grape tomatoes, mozzarella pearls, and basil to the mix. \n3) Add oil, vinegar, and salt to taste, or add your favorite dressing. \n4) Enjoy!"
+
+soupInstructions = "1) Melt butter in a pot over medium-low heat, then add chopped onion to saute until softened and golden (10 - 12 min).\n2) Add minced garlic and saute another minute.\n3) Add flour to the pot and stir until mixture is slightly thickened and pale gold (about 3 mins). Should not be brown.\n4) Stir in tomatoes, sugar, salt, pepper, and cream. Raise to medium heat until the liquid bubbles, then reduce heat to low.\n5) Let simmer for 30 minutes, scraping the bottom of the pot frequently.\n6) Stir in honey. Remove mixture from heat and puree using a hand blender. Return to medium heat until heated through.\n7) Serve hot and enjoy. "
+lambInstructions = "1) Combine garlic, rosemary, and olive oil in a mini food processor until the garlic is finely chopped. \n2) Season lamb racks with salt and pepper. Rub the garlic-rosemary-oil mixture over them. \n3) Set racks fat-side up on a large rimmed baking sheet and let stand for 1 hours. \n4) Preheat oven to 450 F. Roast lamb in upper third of over for 15 minutes. \n5) Turn racks and roast for 10 minutes longer for medium-rare meat. \n6) Transfer racks to a carving board, stnad them upright, and let rest for 10 minutes. \n7) Carve racks in between rib bones and transfer to plates. \n8) Serve to plate and enjoy!"
+
+filetInstructions = "1) Remove meat from fridge about 30-60 minutes before cooking. Place them on a plate, salt/pepper them, and let them sit. \n2) Heat oven to 360 F and place a cast-iron skillet over high heat on stove. Let it heat up, then add oil and sear the steaks without moving them until a brown crust forms on the bottom. Flip and sear the other side the same way. \n3) Take the pan off the heat once both sides are browned, then add butter, garlic, and rosemary to the pan. \n4) Place the skillet in the hot oven for 2-8 minutes, depending on how you like your beef done and the size of the meats. \nRare: 2 minutes  Medium-Rare: 3-4 minutes  Medium: 5 minutes  Medium-Well: 6-7 minutes  Well-Done: 8 minutes \n5) Remove Filet Mignons from oven, tent with foil and allow to rest for 5-10 minutes before serving with the butter and garlic from the pan. \n6) Serve to plate and enjoy!"
 
 #Ingredients
+
 #Cookie Ingredients
 cookieFlour = 0.2
 cookieWhiteSugar = 0.06
@@ -32,18 +36,21 @@ saladVinegar = 0.05
 soupTomatoes = 0.6
 soupOnion = 0.1
 soupGarlic = 1
-soupButter = 0.5
+soupButter = 1
 soupFlour = 0.5
 soupSugar = 0.5
+soupCream = 0.2
+soupHoney = 0.25
 
 #Lamb Rack Ingredients
-rackoflamb = 1                  # rack
-lambOliveoil = 2                   # tbsp
-lambSalt = 0.5                      # tsp
-rosemary = 2                    # cups
-thyme = 1                       # tsp
-garlic = 1                      # tsp
-time = 20                       # mins
+rackoflamb = 1                  
+lambOliveoil = 2                   
+lambSalt = 0.5                      
+lambPepper = 0.5
+rosemary = 2                    
+thyme = 1                       
+garlic = 1                      
+time = 20                       
 
 #Filet Mignon Ingredients
 filetmignon = 1         # 8-10 oz each
@@ -51,6 +58,10 @@ filetOliveoil = 1                    # tbsp
 filetSalt = 0.5                      # tsp
 yourfavoriteseasoning  = 2    # tsp
 time = 20                       # mins
+
+def invalid():
+	print("That is an invalid party size.")
+
 
 
 
@@ -68,104 +79,127 @@ while choice != 2:
 	#User Input
 	choice = int(input())
 	
-	#Cook A Recipe
+	#User chooses to Cook A Recipe
 	if choice == 1:
 		
 		print("\nChoose a recipe to view: ", end = "")
 
-		recipe = int(input("1. Chocolate Chip Cookies, 2. Rainbow Salad, 3. Tomato Soup, 4. Lamb Rack, 5. Filet Mignon"))
+		recipe = int(input("1. Chocolate Chip Cookies, 2. Rainbow Salad, 3. Tomato Soup, 4. Lamb Rack, 5. Filet Mignon\n"))
 		
-		people = int(input("What is your party size?"))
+		people = int(input("What is your party size?\n"))
 		
 		#Chocolate Chip Cookie Recipe
 		if recipe == 1:
-			print("Chocolate Chip Cookies Recipe")
-			print("Serves 3 cookeis per person")
+			if people > 0:
+				print("\nChocolate Chip Cookies Recipe")
+				print("Serves 3 cookeis per person")
+				print("\nIngredients:")
+				print( cookieFlour * people, "cups of flour")
+				print( cookieWhiteSugar * people, "cups of white sugar")
+				print( cookieBrownSugar * people, "cups of brown sugar")
+				print( math.ceil(cookieEggs * people * 0.125), "eggs")
+				print( cookieButter * people, "sticks of butter")
+				print( cookieChocolateChips * people, "cups of chocolate chips")
+				print("A pinch of salt.")
+		
+				print("\nInstructons:")
+				print(cookiesInstructions)
 			
-			print("\nIngredients:")
-			print( cookieFlour * people, "Cups of flour")
-			print( cookieWhiteSugar * people, "Cups of white sugar")
-			print( cookieBrownSugar * people, "Cups of brown sugar")
-			print( math.ceil(cookieEggs * people * 0.125), "Eggs")
-			print( cookieButter * people, "Sticks of butter")
-			print( cookieChocolateChips * people, "Cups of chocolate chips")
-			print("A pinch of salt.")
-			
-			print("\nInstructons:")
-			print(cookiesInstructions)
+			else:
+				invalid()
 		
 			
 		#Rainbow Salad Recipe
 		elif recipe == 2:
-			print("Rainbow Salad Recipe\n")
-			print("Ingredients: ")
-			print( saladKale * people, "Cups of kale")
-			print( saladCabbage * people, "Cups of red cabbage")
-			print( saladCarrots * people, "Cups of diced carrots")
-			print( saladBasil * people, "Cups of basil")
-			print( saladPeppers * people, "Cups of diced bell peppers")
-			print( saladTomatoes * people, "Cups of grape tomatoes")
-			print( saladMozzarella * people, "Cups of mozzarella pearls")
-			print( saladOil * people, "Cups of extra-virgin olive oil")
-			print( saladVinegar * people, "Cups of white balsamic vinegar")
-			print("Salt to taste.")
-			
-			print("\nInstructons:")
-			print(saladInstructions)
+			if people > 0:	
+				print("\nRainbow Salad Recipe")
+				
+				print("\nIngredients: ")
+				print( saladKale * people, "cups of kale")
+				print( saladCabbage * people, "cups of red cabbage")
+				print( saladCarrots * people, "cups of diced carrots")
+				print( saladBasil * people, "cups of basil")
+				print( saladPeppers * people, "cups of diced bell peppers")
+				print( saladTomatoes * people, "cups of grape tomatoes")
+				print( saladMozzarella * people, "cups of mozzarella pearls")
+				print( saladOil * people, "cups of extra-virgin olive oil")
+				print( saladVinegar * people, "cups of white balsamic vinegar")
+				print("salt and pepper to taste.")
+				
+				print("\nInstructons:")
+				print(saladInstructions)
+				
+			else:
+				invalid()
 			
 
 		#Tomato Soup Recipe
 		elif recipe == 3:
-			print("Tomato Soup Recipe\n")
-			print("Ingredients: ")
-			print( soupTomatoes * people, "Cups of chopped tomatoes")
-			print( soupOnion * people, "Cups of sliced white onion")
-			print( math.ceil(soupGarlic * people * 0.5), "Cloves of garlic")
-			print( soupButter * people, "Tablespoons of butter")
-			print( soupFlour * people, "tablespoons of all-purpose flour")
-			print( soupSugar * people, "tablespoons of white sugar")
-			
-			print("\nInstructons:")
-			print(soupInstructions)
+			if people > 0:
+				print("\nTomato Soup Recipe")
+				
+				print("\nIngredients: ")
+				print( soupTomatoes * people, "cups of diced tomatoes")
+				print( soupOnion * people, "cups of sliced white onion")
+				print( math.ceil(soupGarlic * people * 0.25), "cloves of garlic")
+				print( soupButter * people, "tablespoons of butter")
+				print( soupFlour * people, "tablespoons of all-purpose flour")
+				print( soupSugar * people, "tablespoons of white sugar")
+				print( soupCream * people, "cups of whipping cream")
+				print( soupHoney * people, "tablespoons of honey")
+				
+				print("\nInstructons:")
+				print(soupInstructions)
+				
+			else:
+				invalid()
 			
 	
 		#Lamb Rack Recipe
 		elif recipe == 4:
-			print("Lamb Rack Recipe")
-			print("Serves two chops per person\n")
-			print("Ingredients: ")
-			print( math.ceil(people/4), "rack(s) of Lamb (1 rack is 8 chops)" )
-			print( math.ceil(people/4) * lambOliveoil, "tbsp of olive oil" )
-			print( math.ceil(people/4) * lambSalt, "tsps of salt" )
-			print( math.ceil(people/4) * rosemary, "tsps of rosemary")
-			print( math.ceil(people/4) * thyme, "tsps of thyme" )
-			print( math.ceil(people/4) * garlic, "tsps of garlic" )
-			print( time, "mins at 380F, time will vary depending on how you want the meat, rare, medium, well done" )
-			
-			print("\nInstructons:")
-			print(lambInstructions)
+			if people > 0:
+				print("\nLamb Rack Recipe")
+				print("Serves two chops per person")
+				print("\nIngredients: ")
+				print( math.ceil(people/4), "rack(s) of Lamb (1 rack is 8 chops)" )
+				print( math.ceil(people/4) * lambOliveoil, "tablespoons of olive oil" )
+				print( math.ceil(people/4) * lambSalt, "teaspoons of salt" )
+				print( math.ceil(people/4) * lambPepper, "teaspoons of  pepper" )
+				print( math.ceil(people/4) * rosemary, "teaspoons of rosemary")
+				print( math.ceil(people/4) * thyme, "teaspoons of thyme" )
+				print( math.ceil(people/4) * garlic, "teaspoons of garlic" )
+				
+				print("\nInstructons:")
+				print(lambInstructions)
+				
+			else:
+				invalid()
 			
 			
 		#Filet Mignon Recipe
 		elif recipe ==5:
-			print("Filet Mignon Recipe\n")
-			print("Ingredients: ")
-			print( filetmignon * people, "filet mignon steak(s)" )
-			print( filetOliveoil * people, "tbsp of olive oil" )
-			print( filetSalt * people, "tsps of salt" )
-			print( time, "\t mins at 380F, time will vary depending on how you want the meat, rare, medium, well done" )
-			
-			print("\nInstructions:")
-			print(filetInstructions)
+			if people > 0:
+				print("\nFilet Mignon Recipe")
+				print("\nIngredients: ")
+				print( filetmignon * people, "filet mignon steak(s)" )
+				print( filetOliveoil * people, "tablespoons of olive oil" )
+				print( filetSalt * people, "teaspoons of salt" )
+				
+				print("\nInstructions:")
+				print(filetInstructions)
+			else:
+				invalid()
 		
 		else:
 			print("That is not a valid choice, please try again.")
 		
 	elif choice == 2:
-		print("Goodbye!")
+		print("\nGoodbye!")
 		break
 		
 	else:
-		print("That is not a valid choice. Please try again")
+		print("\nThat is not a valid choice. Please try again")
 		
+						
+						
 						
