@@ -1,0 +1,27 @@
+#Create variables, one for each recipe, which contains text that lists the instructions on how to prepare the recipe
+#Create variables listing each ingredient for every recipe and assign them a value depending on their measurement (cup, teaspoon, tablespoon, etc.) needed for ONE serving (will later be multiplied by party size)
+#Define a function (invalid()) that can be used to read the message "That is an invalid choice" when the user inputs something incorrectly
+
+#Welcome the user to the program
+#Declare a variable that calls for the user's input on whether to 1. Pick A Recipe or 2. Exit The Program
+#Create a while loop that repeats the program until the user chooses to exit by inputing "2"
+
+#If user picks 1:
+	#Declare a variable to get user input on what recipe they would like to see (1. Chocolate Chip Cookies, 2. Rainbow Salad, 3. Tomato Soup, 4. Lamb Rack, 5. Filet Mignon)
+	#Declare a variable that asks the user to input the party size/how many people the recipe will be for
+	
+	#For each recipe create an if/elif statement (if recipe == n):
+		#Check that the number entered for the party size is valid (ex. not a negative number) (if people > 0:)
+			#Print Name Of Recipe
+			#Print list of ingredients, multiplying them by the number of people the user inputted
+			#Print instructions
+		#Else: (for if user picks a number for a party size that is not valid, such as a negative number)
+			#invalid()
+	#Else: (for if user picks a number for a recipe that is not valid, such as something greater than 5 or lower than 2)
+			#invalid()
+
+#Elif user picks 2:
+	#Print goodbye and break from the loop, ending the program
+	
+#Else: (if the user inputs any other number)
+	#invalid()
